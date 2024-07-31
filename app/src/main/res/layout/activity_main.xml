@@ -30,7 +30,7 @@
         android:background="@drawable/heightcard_bg"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:layout_above="@id/heightLayout"
         android:layout_marginTop="20dp">
 
@@ -65,7 +65,7 @@
         android:background="@drawable/heightcard_bg"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="60dp"
         android:layout_above="@id/heightLayout"
         android:layout_marginTop="20dp">
 
@@ -100,7 +100,7 @@
             android:layout_height="150dp"
             android:layout_above="@id/centreHorizontalline"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/heightcard_bg">
@@ -139,18 +139,18 @@
                 android:layout_marginStart="20dp"/>
 
 
-            <SeekBar
-                android:id="@+id/seekbarForHeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:progressTint="@color/black"
-                android:progressBackgroundTint="@color/white"/>
+        <SeekBar
+            android:id="@+id/seekbarForHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="27dp"
+            android:padding="8dp"
+            android:progressTint="@color/white" />
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -302,7 +302,7 @@
 
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
             android:id="@+id/calculateBMIBtn"
             android:layout_width="match_parent"
             android:layout_height="48dp"

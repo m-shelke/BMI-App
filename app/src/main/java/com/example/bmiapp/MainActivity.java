@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -25,8 +26,8 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
 
-    int intWeight = 55;
-    int intAge = 22;
+    int intWeight = 30;
+    int intAge = 25;
     int currentProgress;
 
     String intProgress = "150";
@@ -54,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txtCurrentHeight = findViewById(R.id.currentHeight);
         TextView txtCurrentWeight = findViewById(R.id.currentWeight);
+        TextView txtCurrentAge = findViewById(R.id.currentAge);
         TextView txtMale = findViewById(R.id.txtMale);
         TextView txtFemale = findViewById(R.id.txtFemale);
 
         ImageView imgIncreamentWeight = findViewById(R.id.increamentWeight);
-        ImageView imgDecreamentWeighyt = findViewById(R.id.decreamentWeight);
+        ImageView imgDecreamentWeight = findViewById(R.id.decreamentWeight);
         ImageView imgIncreamentAge = findViewById(R.id.increamentAge);
         ImageView imgDecreamentAge = findViewById(R.id.decreamentAge);
 
@@ -112,6 +114,46 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        imgIncreamentAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intAge = intAge+1;
+                age = String.valueOf(intAge);
+                txtCurrentAge.setText(age);
+                txtCurrentAge.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+            }
+        });
+
+        imgDecreamentAge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intAge = intAge-1;
+                age = String.valueOf(intAge);
+                txtCurrentAge.setText(age);
+                txtCurrentAge.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+            }
+        });
+
+
+        imgIncreamentWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intWeight = intWeight+1;
+                weight = String.valueOf(intWeight);
+                txtCurrentWeight.setText(weight);
+                txtCurrentWeight.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+            }
+        });
+
+        imgDecreamentWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intWeight = intWeight-1;
+                weight = String.valueOf(intWeight);
+                txtCurrentWeight.setText(weight);
+                txtCurrentWeight.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+            }
+        });
 
 
 
@@ -121,10 +163,29 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ShowBMI.class);
-                startActivity(intent);
 
-                // textView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));     it's work..!!
+                if (typeOfUsers.equals("0")){
+                    Toast.makeText(getApplicationContext(),"Select Your Gender First..!!",Toast.LENGTH_SHORT).show();
+                } else if (seekBarForHeight.equals("0")) {
+                    Toast.makeText(MainActivity.this, "Select Your Height First..!!", Toast.LENGTH_SHORT).show();
+                } else if (intWeight == 0 || intWeight < 0) {
+                    Toast.makeText(MainActivity.this, "Selected Weight Is Incorrect..!!", Toast.LENGTH_SHORT).show();
+                } else if (intAge == 0 || intAge <0) {
+                    Toast.makeText(MainActivity.this, "Selected Age Is Incorrect..!!", Toast.LENGTH_SHORT).show();
+                }else {
+
+                    Intent intent = new Intent(MainActivity.this,ShowBMI.class);
+
+                    intent.putExtra("gender",typeOfUsers);
+                    intent.putExtra("height",intProgress);
+                    intent.putExtra("weight",weight);
+                    intent.putExtra("age",age);
+
+                    startActivity(intent);
+                }
+
+
+
             }
         });
 

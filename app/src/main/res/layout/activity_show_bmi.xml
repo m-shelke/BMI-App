@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/resultImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
         android:layout_above="@id/contentLayout"
         android:layout_marginBottom="30dp"
         android:layout_centerHorizontal="true"
@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
+        android:layout_margin="15dp"
         android:background="@drawable/heightcard_bg"
         android:layout_centerInParent="true">
 
@@ -49,6 +50,7 @@
             android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/bmiCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your BMI Calculator Is "
@@ -66,12 +68,11 @@
     <Button
         android:id="@+id/recalculateBMIBtn"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:text="Re-Calculate My BMI"
-        android:layout_below="@id/contentLayout"
-        android:layout_marginTop="50dp"
         android:textSize="15sp"
+        android:layout_alignParentBottom="true"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="20dp"

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     int intAge = 25;
     int currentProgress;
 
-    String intProgress = "150";
+    String intProgress = "0";
     String typeOfUsers = "0";
     String weight = "55";
     String age = "22";
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         seekBarForHeight.setMax(300);
-        seekBarForHeight.setProgress(150);
+        seekBarForHeight.setProgress(0);
 
         seekBarForHeight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (typeOfUsers.equals("0")){
                     Toast.makeText(getApplicationContext(),"Select Your Gender First..!!",Toast.LENGTH_SHORT).show();
-                } else if (seekBarForHeight.equals("0")) {
+                } else if (intProgress.equals("0")) {
                     Toast.makeText(MainActivity.this, "Select Your Height First..!!", Toast.LENGTH_SHORT).show();
                 } else if (intWeight == 0 || intWeight < 0) {
                     Toast.makeText(MainActivity.this, "Selected Weight Is Incorrect..!!", Toast.LENGTH_SHORT).show();
@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("age",age);
 
                     startActivity(intent);
+                    finish();
                 }
 
 

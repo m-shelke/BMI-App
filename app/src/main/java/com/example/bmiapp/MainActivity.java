@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemale_focus));
-              //  txtMale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
+                txtMale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
                 typeOfUsers = "Male";
             }
@@ -82,34 +82,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.malefemale_focus));
-              //  txtFemale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
+                txtFemale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
                 typeOfUsers = "Female";
             }
         });
 
-//
-//        seekBarForHeight.setMax(300);
-//        seekBarForHeight.setProgress(150);
-//
-//        seekBarForHeight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                currentProgress = progress;
-//                intProgress = String.valueOf(currentProgress);  //Type casting Int to String
-//                txtCurrentHeight.setText(intProgress);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//        });
+
+        seekBarForHeight.setMax(300);
+        seekBarForHeight.setProgress(150);
+
+        seekBarForHeight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                currentProgress = progress;
+                intProgress = String.valueOf(currentProgress);  //Type casting Int to String
+                txtCurrentHeight.setText(intProgress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
 

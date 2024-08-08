@@ -2,7 +2,9 @@ package com.example.bmiapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Objects;
 
 public class ShowBMI extends AppCompatActivity {
 
@@ -35,7 +39,6 @@ public class ShowBMI extends AppCompatActivity {
             return insets;
         });
 
-       // Objects.requireNonNull(getSupportActionBar()).hide();
 
         TextView txtbmiDisplay = findViewById(R.id.bmiDisplay);
         TextView txtgenderDisplay = findViewById(R.id.genderDisplytxt);
@@ -47,11 +50,11 @@ public class ShowBMI extends AppCompatActivity {
         Button button =findViewById(R.id.recalculateBMIBtn);
 
 
-//          getSupportActionBar().setElevation(0);
-//          getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
-//          getSupportActionBar().setTitle("Result");
-//        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#ED2727"));
-//        getSupportActionBar().setBackgroundDrawable(colorDrawable);
+          Objects.requireNonNull(getSupportActionBar()).setElevation(0);
+          getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
+          getSupportActionBar().setTitle("Result is..");
+        ColorDrawable colorDrawable = new ColorDrawable(getColor(R.color.black));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
 
         Intent intent;
         intent = getIntent();
@@ -97,11 +100,15 @@ public class ShowBMI extends AppCompatActivity {
         txtgenderDisplay.setText(intent.getStringExtra("gender"));
         txtbmiDisplay.setText(bmi);
 
+
         button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               //creating instance of the Intent class, for the Navigation between ShowBMI Activity and MainActivity
                Intent intent = new Intent(ShowBMI.this,MainActivity.class);
+               //calling startActivity method here
                startActivity(intent);
+               //lastly calling finished method to destroy ShowBMI Activity
                finish();
            }
        });

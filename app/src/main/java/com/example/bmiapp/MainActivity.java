@@ -2,6 +2,7 @@ package com.example.bmiapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
@@ -26,22 +27,22 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
 
+    //Declaring variable here
     int intWeight = 30;
     int intAge = 25;
-    int currentProgress;
+    int intcurrentProgress;
 
-    String intProgress = "0";
-    String typeOfUsers = "0";
-    String weight = "55";
-    String age = "22";
+    String StringProgress = "0";
+    String StringTypeOfUsers = "0";
+    String StringWeight = "55";
+    String StringAge = "22";
 
-
-
-
+    //onCreate method start from here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        //Linking XML Content to Java Code
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -49,9 +50,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-     // Objects.requireNonNull(getSupportActionBar()).hide();
+     // Objects.requireNonNull(getSupportActionBar()).hide();      Gives nullPointException, need to find alternate solution
 
-        Button button =findViewById(R.id.calculateBMIBtn);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Calculate Here..");
+
+
+        //Finding XML View Id here
+        Button calculateBMIBtn =findViewById(R.id.calculateBMIBtn);
 
         TextView txtCurrentHeight = findViewById(R.id.currentHeight);
         TextView txtCurrentWeight = findViewById(R.id.currentWeight);
@@ -70,36 +76,51 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout female = findViewById(R.id.female);
 
 
+        //setOnClickListener to male view Clicked
         male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Setting background, when view Clicked
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemale_focus));
+                //setting Animation to TextView
                 txtMale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
+                //Setting background, when view Clicked
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
-                typeOfUsers = "Male";
+                //Storing "Male" to StringTypesOfUsers
+                StringTypeOfUsers = "Male";
             }
         });
 
         female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Setting background, when view Clicked
                 female.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.malefemale_focus));
+                //setting Animation to TextView
                 txtFemale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
+                //Setting background, when view Clicked
                 male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
-                typeOfUsers = "Female";
+                //Storing "Male" to StringTypesOfUsers
+                StringTypeOfUsers = "Female";
             }
         });
 
 
+        //Setting Max limit of SeekBar 300
         seekBarForHeight.setMax(300);
+        //Attaching SeekBar to seekBarForHeight View
         seekBarForHeight.setProgress(0);
 
+        //setOnClickListener to seekBarForHeight, to trigger Action when Clicked
         seekBarForHeight.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                currentProgress = progress;
-                intProgress = String.valueOf(currentProgress);  //Type casting Int to String
-                txtCurrentHeight.setText(intProgress);
+                //Stored progress of SeeKBar Progress to intcurrentProgress Variable which is Integer type
+                intcurrentProgress = progress;
+                //Type-Casting Integer Value into the String intcurrentProgress --> StringProgress
+                StringProgress = String.valueOf(intcurrentProgress);
+                //Setting StringProgress to txtCurrentHeight TextView
+                txtCurrentHeight.setText(StringProgress);
             }
 
             @Override
@@ -114,74 +135,97 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //setOnClickListener to imgIncreamentAge ImageView
         imgIncreamentAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Increment intAge by 1, if ImageView is Clicked
                 intAge = intAge+1;
-                age = String.valueOf(intAge);
-                txtCurrentAge.setText(age);
+                //Type-Casting Integer Value into the String intAge --> StringAge
+                StringAge = String.valueOf(intAge);
+                //Setting intAge to txtCurrentAge TextView
+                txtCurrentAge.setText(StringAge);
+                //setting Animation to TextView
                 txtCurrentAge.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
             }
         });
 
+        //setOnClickListener to imgDecrementAge ImageView
         imgDecreamentAge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Decrement intAge by 1, if ImageView is Clicked
                 intAge = intAge-1;
-                age = String.valueOf(intAge);
-                txtCurrentAge.setText(age);
+                //Type-Casting Integer Value into the String intAge --> StringAge
+                StringAge = String.valueOf(intAge);
+                //Setting intAge to txtCurrentAge TextView
+                txtCurrentAge.setText(StringAge);
+                //setting Animation to TextView
                 txtCurrentAge.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
             }
         });
 
-
+        //setOnClickListener to imgIncreamentWeight ImageView
         imgIncreamentWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Increment intWeight by 1, if ImageView is Clicked
                 intWeight = intWeight+1;
-                weight = String.valueOf(intWeight);
-                txtCurrentWeight.setText(weight);
+                //Type-Casting Integer Value into the String intWeight --> StringWeight
+                StringWeight = String.valueOf(intWeight);
+                //Setting StringWeight to txtCurrentWeight TextView
+                txtCurrentWeight.setText(StringWeight);
+                //setting Animation to TextView
                 txtCurrentWeight.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
             }
         });
 
+        //setOnClickListener to imgDecreamentWeight ImageView
         imgDecreamentWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Decrement intWeight by 1, if ImageView is Clicked
                 intWeight = intWeight-1;
-                weight = String.valueOf(intWeight);
-                txtCurrentWeight.setText(weight);
+                //Type-Casting Integer Value into the String intWeight --> StringWeight
+                StringWeight = String.valueOf(intWeight);
+                //Setting StringWeight to txtCurrentWeight TextView
+                txtCurrentWeight.setText(StringWeight);
+                //setting Animation to TextView
                 txtCurrentWeight.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
             }
         });
 
 
-
-
-        //TextView textView = findViewById(R.id.txtMale);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        //setOnClickListener to calculateBMIBtn Button
+        calculateBMIBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (typeOfUsers.equals("0")){
+                //if (StringTypeOfUsers.equals("0")) means it not selected then show this Toast message
+                if (StringTypeOfUsers.equals("0")){
                     Toast.makeText(getApplicationContext(),"Select Your Gender First..!!",Toast.LENGTH_SHORT).show();
-                } else if (intProgress.equals("0")) {
+                } else if (StringProgress.equals("0")) {
+                    //if (StringProgress.equals("0")) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Select Your Height First..!!", Toast.LENGTH_SHORT).show();
                 } else if (intWeight == 0 || intWeight < 0) {
+                    //if(intWeight == 0 || intWeight < 0) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Selected Weight Is Incorrect..!!", Toast.LENGTH_SHORT).show();
                 } else if (intAge == 0 || intAge <0) {
+                    //if(intAge == 0 || intAge <0) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Selected Age Is Incorrect..!!", Toast.LENGTH_SHORT).show();
                 }else {
-
+                    //else called ShowBMI Activity
                     Intent intent = new Intent(MainActivity.this,ShowBMI.class);
 
-                    intent.putExtra("gender",typeOfUsers);
-                    intent.putExtra("height",intProgress);
-                    intent.putExtra("weight",weight);
-                    intent.putExtra("age",age);
+                    //Passing MainActivity Data to ShowBMI Activity  "key and value format"
+                    intent.putExtra("gender",StringTypeOfUsers);
+                    intent.putExtra("height",StringProgress);
+                    intent.putExtra("weight",StringWeight);
+                    intent.putExtra("age",StringAge);
 
+                    //calling startActivity method here
                     startActivity(intent);
+                    //lastly calling finished method to destroy MainActivity
                     finish();
                 }
 

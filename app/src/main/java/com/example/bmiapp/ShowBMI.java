@@ -60,7 +60,7 @@ public class ShowBMI extends AppCompatActivity {
         intent = getIntent();
 
        height = intent.getStringExtra("height");
-      weight =  intent.getStringExtra("weight");
+       weight =  intent.getStringExtra("weight");
 
          intHeight = Float.parseFloat(height);
          intWeight = Float.parseFloat(weight);

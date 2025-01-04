@@ -10,19 +10,21 @@
 
     <ImageView
         android:id="@+id/resultImg"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:layout_above="@id/contentLayout"
-        android:layout_marginBottom="30dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/male"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/male" />
 
     <RelativeLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="15dp"
         android:layout_margin="15dp"
         android:background="@drawable/heightcard_bg"
         android:layout_centerInParent="true">
@@ -31,7 +33,7 @@
             android:id="@+id/bmiDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:text="55"
@@ -63,6 +65,86 @@
 
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvResearchBases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Research Is Based On"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_below="@id/contentLayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+<!--    <View-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_below="@id/tvResearchBases"/>-->
+
+
+
+    <LinearLayout
+        android:id="@+id/link1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/white_rounded_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvResearchBases"
+        android:layout_marginTop="20dp">
+
+        <!--        Imageview for displaying static image of the coins-->
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="img"
+            android:src="@drawable/baseline_link_24" />
+
+        <!--        TextView for show static text of the coins-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="From Cleveland Clinic"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="@color/white" />
+
+        <!--        ImageView for displaying the Ads Image-->
+<!--        <ImageView-->
+<!--            android:id="@+id/adsVideo1"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="27dp"-->
+<!--            android:layout_marginLeft="210dp"-->
+<!--            android:src="@drawable/ads" />-->
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <Button

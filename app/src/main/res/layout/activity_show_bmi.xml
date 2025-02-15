@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- RelativeLayout as root layout-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +10,7 @@
     android:background="@color/black"
     tools:context=".ShowBMI">
 
+<!--   Dynamic ImageView for result image of BMI -->
     <ImageView
         android:id="@+id/resultImg"
         android:layout_width="180dp"
@@ -18,8 +21,9 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/male" />
+        android:src="@drawable/normal" />
 
+    <!--        RelativeLayout that contain 1 dynamic TextView of BMI result, 1 TextView for Gender of user and 1 dynamic TextView for Result of BMI -->
     <RelativeLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
@@ -29,6 +33,7 @@
         android:background="@drawable/heightcard_bg"
         android:layout_centerInParent="true">
 
+        <!--        Dynamic TextView for BMI numbers -->
         <TextView
             android:id="@+id/bmiDisplay"
             android:layout_width="wrap_content"
@@ -39,6 +44,7 @@
             android:text="55"
             android:layout_centerHorizontal="true"/>
 
+<!--       Dynamic TextView for Gender display -->
         <TextView
             android:id="@+id/genderDisplytxt"
             android:layout_width="wrap_content"
@@ -51,6 +57,7 @@
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
 
+        <!--        Dynamic TextView for Result of BMI -->
         <TextView
             android:id="@+id/bmiCategory"
             android:layout_width="wrap_content"
@@ -66,11 +73,12 @@
 
     </RelativeLayout>
 
+    <!--        static TextView for "Result Is Based On" text-->
     <TextView
         android:id="@+id/tvResearchBases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Research Is Based On"
+        android:text="Result Is Based On"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -79,6 +87,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
 
+<!--    View taking for underline purpose-->
 <!--    <View-->
 <!--        android:layout_width="200dp"-->
 <!--        android:layout_height="1dp"-->
@@ -87,7 +96,7 @@
 <!--        android:layout_below="@id/tvResearchBases"/>-->
 
 
-
+<!--    LinearLayout that contain 1 ImageView Of link and 1 TextView of Link-->
     <LinearLayout
         android:id="@+id/link1"
         android:layout_width="match_parent"
@@ -100,7 +109,7 @@
         android:layout_below="@id/tvResearchBases"
         android:layout_marginTop="20dp">
 
-        <!--        Imageview for displaying static image of the coins-->
+        <!--        Imageview for displaying static image of Link-->
         <ImageView
             android:layout_width="25dp"
             android:layout_height="20dp"
@@ -108,7 +117,7 @@
             android:contentDescription="img"
             android:src="@drawable/baseline_link_24" />
 
-        <!--        TextView for show static text of the coins-->
+        <!--       static TextView for show static text of link text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,34 +127,40 @@
             android:textSize="16dp"
             android:textColor="@color/white" />
 
-        <!--        ImageView for displaying the Ads Image-->
-<!--        <ImageView-->
-<!--            android:id="@+id/adsVideo1"-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="27dp"-->
-<!--            android:layout_marginLeft="210dp"-->
-<!--            android:src="@drawable/ads" />-->
-
     </LinearLayout>
 
+    <!--    LinearLayout that contain 1 ImageView Of link and 1 TextView of Link-->
+    <LinearLayout
+        android:id="@+id/link2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/white_rounded_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/link1"
+        android:layout_marginTop="20dp">
 
+        <!--        Imageview for displaying static image of Link-->
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:contentDescription="img"
+            android:src="@drawable/baseline_link_24" />
 
+        <!--       static TextView for show static text of link text-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="From Health Line          "
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="@color/white" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </LinearLayout>
 
     <Button
         android:id="@+id/recalculateBMIBtn"

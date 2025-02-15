@@ -8,6 +8,7 @@
     android:background="@color/white"
     tools:context=".SplashScreen">
 
+<!--    ImageView for App logo (and for some animation)-->
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="100dp"
@@ -15,6 +16,7 @@
         android:src="@drawable/bmilogo"
         android:layout_centerInParent="true"/>
 
+<!--    TextView for App text and some animation-->
     <TextView
         android:id="@+id/logotxt"
         android:layout_width="wrap_content"

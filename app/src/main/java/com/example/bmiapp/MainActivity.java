@@ -27,7 +27,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
 
-    //Declaring variable here
+    //Declaring variable and setting and assigning by default value to it
     int intWeight = 30;
     int intAge = 25;
     int intcurrentProgress;
@@ -50,14 +50,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-     // Objects.requireNonNull(getSupportActionBar()).hide();      Gives nullPointException, need to find alternate solution
+        // Objects.requireNonNull(getSupportActionBar()).hide();      Gives nullPointException, need to find alternate solution, for that firstly, you need to implement ActionBar in your App. That's it give error
 
+//        setting ActionBar and also setting font color of the ActionBar Title
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
+//        setting ActionBar Title
         Objects.requireNonNull(getSupportActionBar()).setTitle("Calculate Here..");
 
 
-        //Finding XML View Id here
-        Button calculateBMIBtn =findViewById(R.id.calculateBMIBtn);
+        //Finding XML View Id
+        Button calculateBMIBtn = findViewById(R.id.calculateBMIBtn);
 
         TextView txtCurrentHeight = findViewById(R.id.currentHeight);
         TextView txtCurrentWeight = findViewById(R.id.currentWeight);
@@ -72,43 +74,42 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar seekBarForHeight = findViewById(R.id.seekbarForHeight);
 
-        RelativeLayout male = findViewById(R.id.male);
-        RelativeLayout female = findViewById(R.id.female);
+        RelativeLayout maleRelativeLayout = findViewById(R.id.maleRelativeLayout);
+        RelativeLayout femaleRelativeLayout = findViewById(R.id.femaleRelativeLayout);
 
 
         //setOnClickListener to male view Clicked
-        male.setOnClickListener(new View.OnClickListener() {
+        maleRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Setting background, when view Clicked
-                male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.malefemale_focus));
+                maleRelativeLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.malefemale_focus));
                 //setting Animation to TextView
                 txtMale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
                 //Setting background, when view Clicked
-                female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
-                //Storing "Male" to StringTypesOfUsers
+                femaleRelativeLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.heightcard_bg));
+                //Storing "Male" to StringTypesOfUsers variable
                 StringTypeOfUsers = "Male";
             }
         });
 
-        female.setOnClickListener(new View.OnClickListener() {
+        femaleRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Setting background, when view Clicked
-                female.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.malefemale_focus));
+                femaleRelativeLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.malefemale_focus));
                 //setting Animation to TextView
                 txtFemale.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left));
                 //Setting background, when view Clicked
-                male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.heightcard_bg));
+                maleRelativeLayout.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.heightcard_bg));
                 //Storing "Male" to StringTypesOfUsers
                 StringTypeOfUsers = "Female";
             }
         });
 
-
         //Setting Max limit of SeekBar 300
         seekBarForHeight.setMax(300);
-        //Attaching SeekBar to seekBarForHeight View
+        //Setting by default progress of the SeekBar to 0
         seekBarForHeight.setProgress(0);
 
         //setOnClickListener to seekBarForHeight, to trigger Action when Clicked
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Increment intAge by 1, if ImageView is Clicked
-                intAge = intAge+1;
+                intAge = intAge + 1;
                 //Type-Casting Integer Value into the String intAge --> StringAge
                 StringAge = String.valueOf(intAge);
                 //Setting intAge to txtCurrentAge TextView
@@ -155,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Decrement intAge by 1, if ImageView is Clicked
-                intAge = intAge-1;
+                intAge = intAge - 1;
                 //Type-Casting Integer Value into the String intAge --> StringAge
                 StringAge = String.valueOf(intAge);
                 //Setting intAge to txtCurrentAge TextView
@@ -170,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Increment intWeight by 1, if ImageView is Clicked
-                intWeight = intWeight+1;
+                intWeight = intWeight + 1;
                 //Type-Casting Integer Value into the String intWeight --> StringWeight
                 StringWeight = String.valueOf(intWeight);
                 //Setting StringWeight to txtCurrentWeight TextView
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Decrement intWeight by 1, if ImageView is Clicked
-                intWeight = intWeight-1;
+                intWeight = intWeight - 1;
                 //Type-Casting Integer Value into the String intWeight --> StringWeight
                 StringWeight = String.valueOf(intWeight);
                 //Setting StringWeight to txtCurrentWeight TextView
@@ -202,35 +203,32 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //if (StringTypeOfUsers.equals("0")) means it not selected then show this Toast message
-                if (StringTypeOfUsers.equals("0")){
-                    Toast.makeText(getApplicationContext(),"Select Your Gender First..!!",Toast.LENGTH_SHORT).show();
+                if (StringTypeOfUsers.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "Select Your Gender First..!!", Toast.LENGTH_SHORT).show();
                 } else if (StringProgress.equals("0")) {
                     //if (StringProgress.equals("0")) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Select Your Height First..!!", Toast.LENGTH_SHORT).show();
                 } else if (intWeight == 0 || intWeight < 0) {
                     //if(intWeight == 0 || intWeight < 0) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Selected Weight Is Incorrect..!!", Toast.LENGTH_SHORT).show();
-                } else if (intAge == 0 || intAge <0) {
+                } else if (intAge == 0 || intAge < 0) {
                     //if(intAge == 0 || intAge <0) means it not selected then show this Toast message
                     Toast.makeText(MainActivity.this, "Selected Age Is Incorrect..!!", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     //else called ShowBMI Activity
-                    Intent intent = new Intent(MainActivity.this,ShowBMI.class);
+                    Intent intent = new Intent(MainActivity.this, ShowBMI.class);
 
-                    //Passing MainActivity Data to ShowBMI Activity  "key and value format"
-                    intent.putExtra("gender",StringTypeOfUsers);
-                    intent.putExtra("height",StringProgress);
-                    intent.putExtra("weight",StringWeight);
-                    intent.putExtra("age",StringAge);
+                    //Passing MainActivity Data to ShowBMI Activity  "key and value pairs"
+                    intent.putExtra("gender", StringTypeOfUsers);
+                    intent.putExtra("height", StringProgress);
+                    intent.putExtra("weight", StringWeight);
+                    intent.putExtra("age", StringAge);
 
                     //calling startActivity method here
                     startActivity(intent);
                     //lastly calling finished method to destroy MainActivity
                     finish();
                 }
-
-
-
             }
         });
 

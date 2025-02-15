@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- parent root layout-->
 <RelativeLayout
     android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,12 +9,14 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
+<!--   Horizontal RelativeLayout -->
         <RelativeLayout
             android:id="@+id/centreHorizontalline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"/>
 
+<!--    Vertical RelativeLayout-->
         <RelativeLayout
             android:id="@+id/centreVerticalline"
             android:layout_width="wrap_content"
@@ -21,9 +24,9 @@
             android:layout_centerHorizontal="true"/>
 
 
-
+<!-- RelativeLayout that contain 1 ImageView and TextView-->
     <RelativeLayout
-        android:id="@+id/male"
+        android:id="@+id/maleRelativeLayout"
         android:layout_width="120dp"
         android:layout_height="150dp"
         android:layout_toStartOf="@id/centreVerticalline"
@@ -34,6 +37,7 @@
         android:layout_above="@id/heightLayout"
         android:layout_marginTop="20dp">
 
+<!--        ImageView for Male poster-->
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -42,6 +46,7 @@
             android:src="@drawable/male"
             android:layout_centerInParent="true"/>
 
+<!--        Static TextView for Male text-->
         <TextView
             android:id="@+id/txtMale"
             android:layout_width="match_parent"
@@ -57,8 +62,10 @@
 
     </RelativeLayout>
 
+    <!-- RelativeLayout that contain 1 ImageView and TextView-->
+
     <RelativeLayout
-        android:id="@+id/female"
+        android:id="@+id/femaleRelativeLayout"
         android:layout_width="120dp"
         android:layout_height="150dp"
         android:layout_toEndOf="@id/centreVerticalline"
@@ -69,6 +76,8 @@
         android:layout_above="@id/heightLayout"
         android:layout_marginTop="20dp">
 
+        <!--        ImageView for Female poster-->
+
         <ImageView
             android:layout_width="170px"
             android:layout_height="170px"
@@ -77,6 +86,7 @@
             android:src="@drawable/female"
             android:layout_centerInParent="true"/>
 
+        <!--        Static TextView for Male text-->
         <TextView
             android:id="@+id/txtFemale"
             android:layout_width="match_parent"
@@ -91,8 +101,7 @@
 
     </RelativeLayout>
 
-
-
+    <!-- RelativeLayout that contain 1 TextView Of "Height" in CM and 1 SeekBar-->
     <RelativeLayout
             android:id="@+id/heightLayout"
             android:layout_width="340dp"
@@ -104,7 +113,8 @@
             android:layout_marginLeft="25dp"
             android:background="@drawable/heightcard_bg">
 
-            <TextView
+        <!--        Static TextView for Height text-->
+        <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -114,7 +124,8 @@
                 android:textSize="20sp"
                 android:layout_marginTop="15dp"/>
 
-            <TextView
+        <!--        Dynamic TextView for Counting Height in CM -->
+        <TextView
                 android:id="@+id/currentHeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -126,7 +137,8 @@
                 android:textStyle="bold"
                 android:layout_centerInParent="true"/>
 
-            <TextView
+        <!--        Static TextView for CM measurement text-->
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cm"
@@ -138,6 +150,7 @@
                 android:layout_marginStart="20dp"/>
 
 
+<!--        SeekBar for getting Height form the users -->
         <SeekBar
             android:id="@+id/seekbarForHeight"
             android:layout_width="match_parent"
@@ -153,6 +166,7 @@
     </RelativeLayout>
 
 
+    <!-- RelativeLayout that contain 1 Static TextView of Weight, 1 Dynamic TextView Weight Count, 1 Static TextView of /kg and Minus and Plus ImageView-->
     <RelativeLayout
         android:id="@+id/weight"
         android:layout_width="150dp"
@@ -165,6 +179,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/heightcard_bg">
 
+        <!--        Static TextView for Weight text-->
         <TextView
             android:id="@+id/textWeight"
             android:layout_width="match_parent"
@@ -176,6 +191,7 @@
             android:textSize="18sp"
             android:layout_marginTop="15dp"/>
 
+        <!--        Dynamic TextView for Counting of Weight/kg -->
         <TextView
             android:id="@+id/currentWeight"
             android:layout_width="match_parent"
@@ -187,7 +203,20 @@
             android:layout_centerInParent="true"
             android:textAlignment="center"/>
 
+<!--        static TextView for kg Meter-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kg"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="35sp"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@id/currentWeight"/>
 
+<!--        RelativeLayout that contain 1 Image of Minus -->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -196,6 +225,7 @@
             android:padding="3dp"
             android:layout_marginBottom="10dp">
 
+<!--            ImageView of Minus Icon-->
             <ImageView
                 android:id="@+id/decreamentWeight"
                 android:layout_width="30dp"
@@ -204,6 +234,7 @@
 
         </RelativeLayout>
 
+        <!--        RelativeLayout that contain 1 Image of Plus -->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -213,6 +244,7 @@
             android:padding="3dp"
             android:layout_alignParentEnd="true">
 
+<!--            ImageView of Plus Icon-->
             <ImageView
                 android:id="@+id/increamentWeight"
                 android:layout_width="30dp"
@@ -225,10 +257,7 @@
 
     </RelativeLayout>
 
-
-
-
-
+    <!-- RelativeLayout that contain 1 Static TextView of Age, 1 Dynamic TextView of Age Count, 1 Static TextView of Years and Minus and Plus ImageView-->
     <RelativeLayout
         android:id="@+id/age"
         android:layout_width="150dp"
@@ -241,6 +270,7 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/heightcard_bg">
 
+        <!--        Static TextView for Age text-->
         <TextView
             android:id="@+id/textAge"
             android:layout_width="match_parent"
@@ -252,6 +282,7 @@
             android:textSize="18sp"
             android:layout_marginTop="15dp"/>
 
+        <!--        Dynamic TextView for Counting of Years -->
         <TextView
             android:id="@+id/currentAge"
             android:layout_width="match_parent"
@@ -263,7 +294,22 @@
             android:layout_centerInParent="true"
             android:textAlignment="center"/>
 
+        <!--        static TextView for Years -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" yrs"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="30sp"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@id/currentAge"/>
 
+
+
+        <!--        RelativeLayout that contain 1 Image of Plus -->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -272,6 +318,7 @@
             android:padding="3dp"
             android:layout_marginBottom="10dp">
 
+            <!--            ImageView of Minus Icon-->
             <ImageView
                 android:id="@+id/decreamentAge"
                 android:layout_width="30dp"
@@ -280,6 +327,7 @@
 
         </RelativeLayout>
 
+        <!--        RelativeLayout that contain 1 Image of Plus -->
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -289,6 +337,7 @@
             android:padding="3dp"
             android:layout_alignParentEnd="true">
 
+            <!--            ImageView of Plus Icon-->
             <ImageView
                 android:id="@+id/increamentAge"
                 android:layout_width="30dp"
@@ -301,6 +350,7 @@
 
     </RelativeLayout>
 
+<!--    Button for Calculating BMI and trigger the action on it-->
     <Button
             android:id="@+id/calculateBMIBtn"
             android:layout_width="match_parent"

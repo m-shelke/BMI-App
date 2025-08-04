@@ -21,8 +21,8 @@ A modern, user-friendly **BMI Calculator** Android app built with **Java**, **XM
 <!-- Add actual screenshots in your repo and update paths -->
 <p align="center">
   <img src="https://github.com/user-attachments/assets/debec1fb-d890-4019-9c1e-1028c15323f3" width="500"/>
-  <img src="https://github.com/user-attachments/assets/b2cdc04f-7a52-42f0-abaf-d976669560aa" width="500"/>
-    <img src="https://github.com/user-attachments/assets/15fe773d-11f7-4025-bddd-97596453ea7c" width="500"/>
+ <img src="https://github.com/user-attachments/assets/b2cdc04f-7a52-42f0-abaf-d976669560aa" width="500"/>
+ <img src="https://github.com/user-attachments/assets/15fe773d-11f7-4025-bddd-97596453ea7c" width="500"/>
 
 ## 📷 Check out More Screenshots
 
